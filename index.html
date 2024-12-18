@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركة الأطيبان A. M. B لتمور الوادي</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-page">
+        <div class="logo">
+            <img src="img1.png" alt="Logo of الأطيبان A. M. B">
+        </div>
+        <h1>شركة الأطيبان A. M. B لتمور الوادي</h1>
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">تسجيل الدخول</button>
+        </form>
+    </div>
+    <div id="main-page" style="display: none;">
+        <div class="logo">
+            <img src="img1.png" alt="Logo of الأطيبان A. M. B">
+        </div>
+        <h1>شركة الأطيبان A. M. B لتمور الوادي</h1>
+        <div id="clock"></div>
+        <div id="date"></div>
+        <button id="show-items-btn">قائمة الأصناف</button>
+        <div id="items-menu" style="display: none;">
+            <button onclick="showItemPage('تمر')">علبة تمر</button>
+            <button onclick="showItemPage('عجوة')">علبة عجوة</button>
+            <button onclick="showItemPage('بسكوت')">بسكوت بالتمر</button>
+            <button onclick="showItemPage('عصير')">علبة عصير تمر</button>
+        </div>
+    </div>
+
+    <div id="item-page" style="display: none;">
+        <h2 id="item-title"></h2>
+        <form id="item-form">
+            <label for="order-number">رقم الطلب:</label>
+            <input type="text" id="order-number" name="order-number" required>
+            <label for="item-name">اسم الصنف:</label>
+            <input type="text" id="item-name" name="item-name" required>
+            <label for="item-type">نوع الصنف:</label>
+            <select id="item-type" name="item-type" required>
+                <option value="تمر سايب">تمر سايب</option>
+                <option value="عجوة ناعمة">عجوة ناعمة</option>
+                <option value="علبة تمر">علبة تمر</option>
+                <option value="علبة عجوة">علبة عجوة</option>
+                <option value="علبة عصير تمر">علبة عصير تمر</option>
+                <option value="كيس بسكوت بالتمر">كيس بسكوت بالتمر</option>
+            </select>
+            <label for="quantity">كمية الصنف:</label>
+            <select id="quantity" name="quantity" required>
+                <option value="طن">طن</option>
+                <option value="كيلو">كيلو</option>
+                <option value="جرام">جرام</option>
+            </select>
+            <label for="current-quantity">عدد الأصناف الحالية:</label>
+            <input type="number" id="current-quantity" name="current-quantity" required>
+            <label for="sold-quantity">عدد الأصناف المباعة:</label>
+            <input type="number" id="sold-quantity" name="sold-quantity" required>
+            <label for="price-per-unit">سعر الصنف الواحد بالجنيه المصري:</label>
+            <input type="number" id="price-per-unit" name="price-per-unit" required>
+            <button type="button" onclick="calculateTotal()">حساب إجمالي الفاتورة</button>
+            <button type="button" onclick="calculateRemaining()">حساب عدد الأصناف المتبقية</button>
+            <button type="button" onclick="addToTable()">إضافة البيانات</button>
+        </form>
+        <div class="table-container">
+            <table id="data-table">
+                <thead>
+                    <tr>
+                        <th>رقم الطلب</th>
+                        <th>اسم الصنف</th>
+                        <th>نوع الصنف</th>
+                        <th>كمية الصنف</th>
+                        <th>عدد الأصناف الحالية</th>
+                        <th>عدد الأصناف المباعة</th>
+                        <th>سعر الصنف الواحد</th>
+                        <th>إجمالي الفاتورة</th>
+                        <th>عدد الأصناف المتبقية</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be added here -->
+                </tbody>
+            </table>
+            <div class="table-controls">
+                <button type="button" onclick="saveData()">حفظ البيانات</button>
+                <button type="button" onclick="deleteData()">حذف البيانات</button>
+                <button type="button" onclick="restoreTableData()">استعادة البيانات من الجدول</button>
+                <button type="button" onclick="printData()">طباعة البيانات</button>
+                <button type="button" onclick="goBack()">العودة إلى الصفحة الرئيسية</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
